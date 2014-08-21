@@ -1,0 +1,6 @@
+I am index view of album controller
+<% @album.each do |a| -%>
+<%= a.album_name %>
+<% end %>
+<% a =link_to "Add a new album", :controller => 'stamps', :action => "index" %>
+<%= content_tag :small,a %>
