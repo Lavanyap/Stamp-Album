@@ -10,9 +10,11 @@
 <div id ="user_nav">
 	<% if user_signed_in? %>
 	Signed in as <%= current_user.email %> <br>
-	<%= link_to "sign out", destroy_user_session_path %> <br>
+	<%= link_to "sign out", destroy_user_session_path,:method => :delete %> <br>
 	
 	<%= link_to "edit password", edit_user_password_path %> 
+	<% else %>
+	<%= link_to "sign in", new_user_session_path %> 
 
 	<% end %>
 </div>

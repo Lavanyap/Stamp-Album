@@ -3,5 +3,14 @@ class AlbumsController < ApplicationController
 	def index
 		@album = current_user.albums
 	end
+	def show
+		@stamps = Stamp.where(:album_id => params[:id])
+		@a = params[:id]
+	end
+
+	def create
+
+	end
+
 
 end

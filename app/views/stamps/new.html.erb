@@ -1,0 +1,35 @@
+<div class="col-md-4">
+<div class="input-group input-group-lg">
+<%= form_for :stamp, :url => stamps_path,
+                           :method => 'POST',
+                           :html =>{:multipart => true},
+                           :role => :form do |f| %>
+<div class="form-group">
+  
+    <%= f.number_field :year_of_issue, :placeholder => "Year of Isuue" %>
+<br>
+</div>
+<div class="form-group">
+ 
+</div>
+<div class="form-group">
+  <%= f.number_field :category_id, :placeholder => "category_id" %>
+   </div>
+
+     <%= f.hidden_field :user_id, :value => current_user.id %> 
+ <%= f.hidden_field :album_id, :value => @a %> 
+<div class="form-group">
+<%= f.file_field :image,:placeholder =>"upload a image" %>
+</div>
+<%= select("post", "country_id", 
+       Country.all.order(:name).collect {|p| [ p.name, p.id ] }) %>
+<%= select("post", "category_id", 
+       Category.all.order(:name).collect {|p| [ p.name, p.id ] }) %>
+
+    
+  <%= f.submit "Add stamp", :class => "btn btn-primary pull-right" %>
+  <% end %>
+  </div>   
+  </div>   
+   </form>  
+s

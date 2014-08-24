@@ -1,0 +1,9 @@
+<h4> This album contains below stamps</h4>
+<% @stamps.each do |stamp| -%>
+
+Stamp
+	<%= stamp.year_of_issue %><br>
+	<%= image_tag stamp.image.url, :size => "50x50" %><br>
+<% end %>
+
+<%= link_to "Add a stamp", :controller => 'stamps', :action => "new", :id =>(@a) %>

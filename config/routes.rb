@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 authenticated :user do
   resources :albums
-  resources :users
-  resources :stamps
-
+  
+  resources :stamps 
+  root :to => 'albums#index', :as => :user_root
 end
   # You can have the root of your site routed with "root"
   root :to => 'home#index'

@@ -6,4 +6,6 @@ class Stamp < ActiveRecord::Base
 	validates :country, presence: true
 	validates :category, presence: true
 	validates :year_of_issue, presence: true
+	has_attached_file :image
+	validates_attachment :image, content_type: { content_type: /\Aimage\/.*\Z/ }
 end
