@@ -4,17 +4,25 @@
 
 #wrapper {
     width: 1150px;
-    border: 1px solid black;
+    
      margin-left: auto;
      margin-right: auto;
     overflow: hidden; /* will contain if #first is longer than #second */
 }
 .album_box{
-    width: 100px;
-    float:left; /* add this */
-    border: 1px solid red;
+    width: 140px;
+    height: 150px;
+    float:left;
+   
+
+    
 }
 #new {
 	float: right;
 	padding-right:150px;
+}
+.img{
+    float:center;
+    background-position: center center;
+
 }

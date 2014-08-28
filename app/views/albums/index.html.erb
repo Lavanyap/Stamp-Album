@@ -8,14 +8,28 @@
 
 <% @album.each do |a| -%>
 <div class="album_box">
-
-
+	<div class="imgs">
+<%= image_tag a.image.url, :size => "50x50" %>
+</div>
 <%= link_to a.album_name, :controller => 'albums', :action => "show", :id =>(a.id) %> 
 <br>
+<table>
+	<tr>
+		<td>
 
-  <%= link_to 'share', :controller => 'shares', :action => "index", :id =>(a.id) %>
+  <%= link_to 'share', :controller => 'shares', :action => "index", :id =>(a.id) , :style =>"float: center"%></td>
+  
+ <td> <%= form_for :album, :url => album_path((a.id)),
+                           :method => 'DELETE',
+                           :role => :form do |f| %>
+                           
+              <%= f.submit 'delete', :class => 'btn btn-link text-success smaller', :style =>"float:left" %>
+
+              <% end %></td>
+          </tr>
+      </table>
+            
 </div>
 <% end %>
-<% a =link_to "Add a new album", :controller => 'albums', :action => "new" %>
-<%= content_tag :small,a %>
+
 </div>

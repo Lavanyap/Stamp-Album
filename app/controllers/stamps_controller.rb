@@ -1,12 +1,18 @@
 class StampsController < ApplicationController
 	before_action :authenticate_user!
+	def index
+		@country =Country.all.order(:name)
+	end
+
 	def new
 		@a = params[:id]
 		@country =Country.all.order(:name)
 		@category =Category.all.order(:name)
 	end
 	def show
-		@stamps = Stamp.where(:album_id => params[:id])
+		@id = params[:id]
+		@stamp = current_user.stamps.where(:country_id => params[:id])
+		
 
 	end
 

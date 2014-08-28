@@ -3,6 +3,21 @@ class SharesController < ApplicationController
 		@user =User.all
 		@album = params[:id]
 	end
+
+	def show	
+	
+		@a =(params[:id].to_i)
+		
+		params[:id] = current_user.id
+		@share = Share.all.where(:user_id =>params[:id])
+
+		@share1 = Share.all.where(:shared_to =>params[:id])
+	
+	
+	end
+
+
+
 	def create
 		@share = Share.new(share_params)
 		

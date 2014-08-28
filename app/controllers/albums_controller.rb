@@ -23,10 +23,20 @@ class AlbumsController < ApplicationController
 			end
 	end
 
+	def destroy
+			resource.destroy
+		
+		redirect_to :controller=>'albums',:action =>'index'
+	end
+
+
 	private
 	def album_params
-		params.require(:album).permit(:album_name,:user_id)
+		params.require(:album).permit(:album_name,:user_id,:image)
 	end
+	def resources
+    @resource ||= current_user.albums.where(:id => params[:id]).first
+  end
 
 
 end

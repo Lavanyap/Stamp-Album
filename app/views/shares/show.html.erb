@@ -1,1 +1,15 @@
-<%= @album.id %>
+show template
+
+<% if @a ==1 %>
+<% @share.each do |s| -%>	
+<%= s.album_id %> <br>
+	<% end %>
+	<% end %>
+<% if @a ==2 %>
+
+	Shared to
+<% @share1.each do |s| -%>	
+
+	<%= s.album_id %> <br>
+	<% end %>
+<% end %>

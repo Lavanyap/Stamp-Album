@@ -1,3 +1,14 @@
 <div class="row">
 index of stamp
+<%= form_for :stamp, :action =>"show",
+                           :method => 'GET',
+                           :html =>{:multipart => true},
+                           :role => :form do |f| %>
+<div class="form-group">
+  <%= f.label :country_id, "Country :" %>
+    <%= f.select :id, @country.map {|r| [r.name,r.id] } %>
+</div>
+<%= f.submit "Submit", :class => "btn btn-primary pull-right" %>
+<% end %>
+
 </div>

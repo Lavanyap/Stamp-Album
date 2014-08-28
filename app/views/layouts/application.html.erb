@@ -33,7 +33,10 @@
 
          
 
-          <li><%= link_to "Shared albums",shares_path %></li>
+          <li><%= link_to "Albums shared by you", :controller => "shares" ,:action => "show",:id =>(1)  %></li>
+          <li><%= link_to "Albums shared to you", :controller => "shares" ,:action => "show",:id =>(2)  %></li>
+
+           <li><%= link_to "Stamps by Country", :controller => "stamps" ,:action => "index" %></li>
          
         </ul>
 
