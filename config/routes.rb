@@ -7,6 +7,7 @@ authenticated :user do
   resources :albums
   
   resources :stamps 
+  resources :shares
   root :to => 'albums#index', :as => :user_root
 end
   # You can have the root of your site routed with "root"

@@ -1,35 +1,53 @@
-<div class="col-md-4">
+
+<div class="col-md-6">
 <div class="input-group input-group-lg">
 <%= form_for :stamp, :url => stamps_path,
                            :method => 'POST',
                            :html =>{:multipart => true},
                            :role => :form do |f| %>
 <div class="form-group">
-  
-    <%= f.number_field :year_of_issue, :placeholder => "Year of Isuue" %>
-<br>
+    <%= f.label :year_of_issue, "Year of issue :" %>
+    <%= f.number_field :year_of_issue, :style => "height:25px" %>
 </div>
-<div class="form-group">
- 
-</div>
-<div class="form-group">
-  <%= f.number_field :category_id, :placeholder => "category_id" %>
-   </div>
 
-     <%= f.hidden_field :user_id, :value => current_user.id %> 
- <%= f.hidden_field :album_id, :value => @a %> 
 <div class="form-group">
-<%= f.file_field :image,:placeholder =>"upload a image" %>
-</div>
-<%= select("post", "country_id", 
-       Country.all.order(:name).collect {|p| [ p.name, p.id ] }) %>
-<%= select("post", "category_id", 
-       Category.all.order(:name).collect {|p| [ p.name, p.id ] }) %>
+    <%= f.label :face_value, "Face Value :" %>
+    <%= f.number_field :face_value, :step => 0.01,:style => "height:25px " %>
+  </div>
 
-    
+
+<div class="form-group">
+  <%= f.label :country_id, "Country :" %>
+    <%= f.select :country_id, @country.map {|r| [r.name,r.id] } %>
+</div>
+
+<div class="form-group">
+   <%= f.label :category_id, "Category :" %>
+    <%= f.select :category_id, @category.map {|r| [r.name,r.id] } %>
+</div>
+<div class="form-group">
+  <%= f.label :number_of_stamps_in_collection, "Number of stamps in your collection :" %>
+    <%= f.number_field :number_of_stamps_in_collection,  :style => "height:25px"%>
+</div>
+<div class="form-group">
+  <%= f.label :number_of_stamps_issued, "Number of stamps issued:" %>
+    <%= f.number_field :number_of_stamps_issued, :style => "height:25px" %>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :image, "Select a Image :", :style =>"float:left" %>
+    <br>
+    <%= f.file_field :image, :style => "float:left" %>
+  </div>
+      <%= f.hidden_field :user_id, :value => current_user.id %> 
+      <%= f.hidden_field :album_id, :value => @a %> 
+
+
   <%= f.submit "Add stamp", :class => "btn btn-primary pull-right" %>
+</div>
   <% end %>
   </div>   
   </div>   
    </form>  
-s
+

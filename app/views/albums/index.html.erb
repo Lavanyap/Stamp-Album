@@ -1,8 +1,21 @@
-Your albums <br>
-<% @album.each do |a| -%>
 
-<%= link_to a.album_name, :controller => 'albums', :action => "show", :id =>(a.id) %> <br>
-  
+<div id ="new">
+<h4><% a =link_to "Add a new album", :controller => 'albums', :action => "new" %>
+<%= content_tag :small,a %> </h4> 
+</div>        
+<div id="wrapper">
+    
+
+<% @album.each do |a| -%>
+<div class="album_box">
+
+
+<%= link_to a.album_name, :controller => 'albums', :action => "show", :id =>(a.id) %> 
+<br>
+
+  <%= link_to 'share', :controller => 'shares', :action => "index", :id =>(a.id) %>
+</div>
 <% end %>
-<% a =link_to "Add a new album", :controller => 'albums', :action => "create" %>
+<% a =link_to "Add a new album", :controller => 'albums', :action => "new" %>
 <%= content_tag :small,a %>
+</div>

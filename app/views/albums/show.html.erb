@@ -1,9 +1,53 @@
-<h4> This album contains below stamps</h4>
-<% @stamps.each do |stamp| -%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stamps</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 
-Stamp
-	<%= stamp.year_of_issue %><br>
-	<%= image_tag stamp.image.url, :size => "50x50" %><br>
+</head>
+<body>
+<h4> This album contains below stamps</h4>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>Image</th>
+			<th>Year of issue</th>
+			<th>Country Name</th>
+			<th>Category Name</th>
+			<th>Face value</th>
+			<th>Number Issued</th>
+			<th>Number in Collection</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @stamps.each do |stamp| -%>	
+	 	<tr>
+	 		<% country = Country.find(stamp.country_id) %>
+	 		<% category= Category.find(stamp.category_id ) %>
+	 		<td><%= image_tag stamp.image.url, :size => "50x50" %></td>
+	 		<td><%= stamp.year_of_issue %></td>
+	 		<td><%= country.name %></td>
+	 		<td><%= category.name%></td>
+	 		<td><%= stamp.face_value %></td>
+	 		<td><%= stamp.number_of_stamps_issued %></td>
+	 		<td><%= stamp.number_of_stamps_in_collection %></td>
+	 		<td><%= form_for :stamp, :url => stamp_path((stamp.id)),
+                           :method => 'DELETE',
+                           :role => :form do |f| %>
+                           
+              <%= f.submit 'Delete', :class => 'btn btn-link text-success smaller' %>
+	 		<% end %></td>
+<br>
+	 	</tr>
+
 <% end %>
+</tbody>
+</table>
 
 <%= link_to "Add a stamp", :controller => 'stamps', :action => "new", :id =>(@a) %>
+</body>
+</html>
