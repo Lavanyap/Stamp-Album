@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
 	has_many :albums
 	has_many :stamps
+  has_many :shares
 	has_many :shared_albums, :through =>:shares, :source =>:album
 	validates_uniqueness_of :email
 

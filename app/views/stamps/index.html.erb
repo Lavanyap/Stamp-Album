@@ -1,14 +1,26 @@
 <div class="row">
-index of stamp
-<%= form_for :stamp, :action =>"show",
-                           :method => 'GET',
-                           :html =>{:multipart => true},
-                           :role => :form do |f| %>
-<div class="form-group">
-  <%= f.label :country_id, "Country :" %>
-    <%= f.select :id, @country.map {|r| [r.name,r.id] } %>
-</div>
-<%= f.submit "Submit", :class => "btn btn-primary pull-right" %>
+	<div id="wrapper">
+
+<% if (@id ==1) %>
+
+	<%= form_tag("/stamps/index_by_country", method: "get") do %>
+
+  	<%= label_tag(:country_id, "Country :") %>
+
+  	<%= select_tag(:country_id,options_from_collection_for_select(@country, "id", "name")) %>
+
+  	<%= submit_tag("Search") %>
+  	<% end %>
+ <% else %>
+  	<%= form_tag("/stamps/index_by_category", method: "get") do %>
+
+ 	 <%= label_tag(:category_id, "Category:") %>
+
+  	<%= select_tag(:category_id,options_from_collection_for_select(@category, "id", "name")) %>
+
+  	<%= submit_tag("Search") %>
+<% end %>
 <% end %>
 
+</div>
 </div>

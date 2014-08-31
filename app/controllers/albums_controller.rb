@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
 	end
 	def show
 		@stamps = Stamp.where(:album_id => params[:id])
-		@a = params[:id]
+		@a = Album.find(params[:id])
 	end
 	def new
 
@@ -17,16 +17,28 @@ class AlbumsController < ApplicationController
 		@album = Album.new(album_params)
 
 		if @album.save
-			 flash[:notice] = "album created"
+			 flash[:notice] = "Album got created"
 			
 			 redirect_to :controller=>'albums',:action=>'index'
-			end
-	end
+		else
+			flash[:error] = "Some thing went wrong, album didn't get saved !"
 
+			redirect_to :controller=>'albums',:action=>'index'
+		end
+	end
+	# when you delete an album delete delete all th stmps and shares for that album
 	def destroy
+		if resource
 			resource.destroy
+			all_shared_instances
+			all_stamps_for_the_album
+			flash[:success] = "Album has been deleted"
+    	else
+    		flash[:error] = "Your attempt to delete the album was unsucessful"
+		end
 		
 		redirect_to :controller=>'albums',:action =>'index'
+
 	end
 
 
@@ -34,9 +46,22 @@ class AlbumsController < ApplicationController
 	def album_params
 		params.require(:album).permit(:album_name,:user_id,:image)
 	end
-	def resources
+	def resource
     @resource ||= current_user.albums.where(:id => params[:id]).first
-  end
 
+  end
+  # deletes all shared instance of currently deleting album
+  def all_shared_instances
+    @share ||= current_user.shares.where(:album_id => params[:id])
+    @share.each do |share|
+    	share.destroy
+    end
+  end
+  def all_stamps_for_the_album
+  	 @stamp ||= current_user.stamps.where(:album_id => params[:id])
+     @stamp.each do |stamp|
+    	stamp.destroy
+    end
+end
 
 end

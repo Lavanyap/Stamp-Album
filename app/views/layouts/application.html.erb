@@ -9,9 +9,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id ="user_nav">
-	<% if user_signed_in? %>
+  <% if user_signed_in? %>
+  <% flash.each do |name, msg| %>
+  <% content_tag :div, msg, :id => "flash_#{name}" %>
 
+  <% end %>
+<div id ="user_nav">
+	
 
 
 
@@ -31,13 +35,13 @@
         <ul class="nav navbar-nav">
           <li><%= link_to "My Albums", albums_path %></li>
 
-         
+         <li><a href="/shares/albums_shared_by_user">Albums shared by you</a></li>
+         <li><a href="/shares/albums_shared_to_user">Albums shared with you</a></li>
 
-          <li><%= link_to "Albums shared by you", :controller => "shares" ,:action => "show",:id =>(1)  %></li>
-          <li><%= link_to "Albums shared to you", :controller => "shares" ,:action => "show",:id =>(2)  %></li>
+          
 
-           <li><%= link_to "Stamps by Country", :controller => "stamps" ,:action => "index" %></li>
-         
+           <li><%= link_to "Stamps by Country", :controller => "stamps" ,:action => "index",:id =>(1) %></li>
+            <li><%= link_to "Stamps by Category", :controller => "stamps" ,:action => "index",:id =>(2) %></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

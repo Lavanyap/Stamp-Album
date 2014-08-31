@@ -1,7 +1,10 @@
 class StampsController < ApplicationController
 	before_action :authenticate_user!
 	def index
+		@id = (params[:id].to_i)
 		@country =Country.all.order(:name)
+		@category =Category.all.order(:name)
+
 	end
 
 	def new
@@ -11,8 +14,19 @@ class StampsController < ApplicationController
 	end
 	def show
 		@id = params[:id]
-		@stamp = current_user.stamps.where(:country_id => params[:id])
+		@stamp = current_user.stamps.where(:country_id => params[:country_id])
 		
+
+	end
+
+	def index_by_country
+		
+		@stamp = current_user.stamps.where(:country_id => params[:country_id])	
+
+	end
+	def index_by_category
+		
+		@stamp = current_user.stamps.where(:category_id => params[:category_id])	
 
 	end
 
@@ -24,17 +38,32 @@ class StampsController < ApplicationController
 			 flash[:notice] = "Stamp created"
 			
 			 redirect_to :controller=>'albums',:action=>'show',:id =>@stamp.album_id
-			end
+			
+		else
+			flash[:error] = "Some thing went wrong, Stamp didn't get saved !"
+			redirect_to :controller=>'albums',:action=>'show',:id =>@stamp.album_id
+		end
 
 	end
 
 	def destroy
-		
+		if resource
 			resource.destroy
+
+			flash[:success] = "Album has been deleted"
+			redirect_to :controller=>'albums',:action =>'index'
+		else
+			flash[:error] = "Your attempt to delete the stamp was unsucessful !"
 		
-		
-		redirect_to :controller=>'albums',:action =>'index'
+			redirect_to :controller=>'albums',:action =>'index'
+		end
 	end
+
+	def update_stamp_form
+
+
+	end
+
 
 
 
@@ -47,4 +76,5 @@ class StampsController < ApplicationController
    def resource
     @resource ||= current_user.stamps.where(:id => params[:id]).first
   end
+
 end

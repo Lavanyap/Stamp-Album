@@ -1,0 +1,22 @@
+
+
+
+	<div id="wrapper">
+    
+
+<% @share.each do |s| -%>
+	<% a = Album.find(s.album_id) %>
+	
+<div class="album_box">
+	<div class="imgs">
+		<i><b><%= a.user.username %></b> shared<br></i>
+<%= image_tag a.image.url, :size => "50x50" %>
+</div>
+<%= link_to a.album_name, :controller => 'albums', :action => "show", :id =>(a.id) %> 
+<br>
+
+            
+</div>
+<% end %>
+
+</div>
