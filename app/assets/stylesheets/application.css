@@ -15,4 +15,17 @@
  *= require bootstrap.min
  *= require home
  */
+ .error{
+ 	color: red;
+ }
+ .success{
+ 	color: #009933;
+ }
+ .notice{
+ 	color: #585858 ;
+ }
+p{
+	text-align: right;
+    
+}
 

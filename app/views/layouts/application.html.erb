@@ -10,10 +10,18 @@
 </head>
 <body>
   <% if user_signed_in? %>
-  <% flash.each do |name, msg| %>
-  <% content_tag :div, msg, :id => "flash_#{name}" %>
-
-  <% end %>
+  <% if not @messages_rendered -%>
+  <% if flash[:error] -%>
+    <p class='error'><%=h flash[:error] %></p>
+  <% end -%>
+  <% if flash[:notice] -%>
+    <p class='notice'><%=h flash[:notice] %></p>
+  <% end -%>
+  <% if flash[:success] -%>
+    <p class='success'><%=h flash[:success] %></p>
+  <% end -%>
+<% end -%>
+<% @messages_rendered = true -%>
 <div id ="user_nav">
 	
 

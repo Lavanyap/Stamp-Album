@@ -50,7 +50,7 @@ class StampsController < ApplicationController
 		if resource
 			resource.destroy
 
-			flash[:success] = "Album has been deleted"
+			flash[:success] = "Stamp has been deleted"
 			redirect_to :controller=>'albums',:action =>'index'
 		else
 			flash[:error] = "Your attempt to delete the stamp was unsucessful !"
@@ -77,7 +77,7 @@ class StampsController < ApplicationController
 		@stamp = Stamp.find(params[:id])
 		@stamp.update(stamp_params)
 		if @stamp
-			 flash[:notice] = "Stamp updated"
+			 flash[:success] = "Stamp updated"
 			
 			 redirect_to :controller=>'albums',:action=>'show',:id =>@stamp.album_id
 			
