@@ -1,8 +1,8 @@
-update form
+edit form
 <div class="col-md-6">
 <div class="input-group input-group-lg">
-<%= form_for :stamp, :url => stamps_path,
-                           :method => 'POST',
+<%= form_for :stamp, :url => stamp_path,
+                           :method => 'PATCH',
                            :html =>{:multipart => true},
                            :role => :form do |f| %>
 <div class="form-group">
@@ -44,7 +44,7 @@ update form
       <%= f.hidden_field :album_id, :value => @a %> 
 
 
-  <%= f.submit "Add stamp", :class => "btn btn-primary pull-right" %>
+  <%= f.submit "Update stamp", :class => "btn btn-primary pull-right" %>
 </div>
   <% end %>
   </div>   

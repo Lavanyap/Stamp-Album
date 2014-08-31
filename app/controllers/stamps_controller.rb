@@ -59,10 +59,34 @@ class StampsController < ApplicationController
 		end
 	end
 
-	def update_stamp_form
+	def edit
 
+		@stamp = Stamp.find(params[:id])
+		if @stamp
+			flash[:notice] = "Stamp exists"
+			@a = @stamp.album_id
+			@country =Country.all.order(:name)
+			@category =Category.all.order(:name)
+		else
+			flash[:error] = "Something went wrong stamp doesn't exist !"
+			redirect_to :controller=>'albums',:action=>'index'
+		end
 
 	end
+	def update
+		@stamp = Stamp.find(params[:id])
+		@stamp.update(stamp_params)
+		if @stamp
+			 flash[:notice] = "Stamp updated"
+			
+			 redirect_to :controller=>'albums',:action=>'show',:id =>@stamp.album_id
+			
+		else
+			flash[:error] = "Some thing went wrong, Stamp didn't get updateds !"
+			redirect_to :controller=>'albums',:action=>'index'
+		end
+	end
+
 
 
 
