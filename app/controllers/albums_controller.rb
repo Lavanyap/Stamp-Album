@@ -17,11 +17,11 @@ class AlbumsController < ApplicationController
 		@album = Album.new(album_params)
 
 		if @album.save
-			 flash[:notice] = "Album got created"
+			 flash[:notice] = "New Album created"
 			
 			 redirect_to :controller=>'albums',:action=>'index'
 		else
-			flash[:error] = "Some thing went wrong, album didn't get saved !"
+			flash[:error] = "Some thing went wrong, album didn't get created !"
 
 			redirect_to :controller=>'albums',:action=>'index'
 		end

@@ -8,16 +8,16 @@
 
 </head>
 <body>
-<h4> This album contains below stamps</h4>
+
 
 <% if (@a.user_id == current_user.id) %>
-<div id="new">
-	<h4><%= link_to "Add a stamp", :controller => 'stamps', :action => "new", :id =>(@a) %></h4>
+<div class="new">
+	<%= link_to "Add a stamp", :controller => 'stamps', :action => "new", :id =>(@a) %>
 </div>
 <% end %>
 
 
-<table>
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>Image</th>
@@ -42,13 +42,17 @@
 	 		<td><%= stamp.number_of_stamps_issued %></td>
 	 		<td><%= stamp.number_of_stamps_in_collection %></td>
 	 		<% if (@a.user_id == current_user.id) %>
+
 	 		<td><%= form_for :stamp, :url => stamp_path((stamp.id)),
                            :method => 'DELETE',
                            :role => :form do |f| %>
                            
               <%= f.submit 'Delete', :class => 'btn btn-link text-success smaller' %>
 	 		<% end %></td>
-	 		<td><%= link_to "Edit", :controller => 'stamps', :action => "edit", :id =>(stamp.id) %></h4>
+	 		<td>
+	 			<div id ="ed">
+	 			<%= link_to "Edit", :controller => 'stamps', :action => "edit", :id =>(stamp.id) %>
+	 		</div></td>
 	 		<% end %>
 
 	 	</tr>
@@ -58,7 +62,7 @@
 </table>
 
 <% if (@a.user_id == current_user.id) %>
-<%= link_to "Add a stamp", :controller => 'stamps', :action => "new", :id =>(@a) %>
+
 <% end %>
 </body>
 </html>

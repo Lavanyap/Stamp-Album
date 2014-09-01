@@ -82,7 +82,7 @@ class StampsController < ApplicationController
 			 redirect_to :controller=>'albums',:action=>'show',:id =>@stamp.album_id
 			
 		else
-			flash[:error] = "Some thing went wrong, Stamp didn't get updateds !"
+			flash[:error] = "Some thing went wrong, Stamp didn't get updated !"
 			redirect_to :controller=>'albums',:action=>'index'
 		end
 	end

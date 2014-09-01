@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#wrapper {
+.wrapper {
     width: 1150px;
-    
+    margin-top:45px;
      margin-left: auto;
      margin-right: auto;
     overflow: hidden; /* will contain if #first is longer than #second */
@@ -17,12 +17,16 @@
 
     
 }
-#new {
+.new {
 	float: right;
-	padding-right:150px;
+	padding-right:140px;
+    font-size: 15px;
 }
 .img{
     float:center;
     background-position: center center;
 
+}
+#ed{
+padding-top: 6px;
 }
