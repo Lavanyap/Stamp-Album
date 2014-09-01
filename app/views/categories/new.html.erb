@@ -1,0 +1,21 @@
+<div class="col-md-6">
+<div class="input-group input-group-lg">
+<%= form_for :category, :url => categories_path,
+                           :method => 'POST',
+                           :html =>{:multipart => true},
+                           :role => :form do |f| %>
+<div class="form-group">
+    <%= f.label :name, "Category name:" %>
+    <%= f.text_field :name, :style => "height:25px" %>
+</div>
+
+
+<div class="form-group">
+
+  <%= f.submit "Add a Category", :class => "btn btn-primary pull-right" %>
+</div>
+  <% end %>
+  </div>   
+  </div>   
+   </form>  
+

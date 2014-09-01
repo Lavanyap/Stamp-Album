@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Categories</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<div class="new">
+	<%= link_to "Add a category", :controller => 'categories', :action => "new" %>
+</div>
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Country Name</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	<% @category.each do |c| -%>	
+	 	<tr>
+	 		
+	 		<td><%= c.name %></td>
+	 		
+
+	 		<td><%= form_for :category, :url => category_path((c.id)),
+                           :method => 'DELETE',
+                           :role => :form do |f| %>
+                           
+              <%= f.submit 'Delete', :class => 'btn btn-link text-success smaller' %></td>
+	 		<td>
+	 			
+	 		<% end %>
+
+	 	</tr>
+
+<% end %>
+</tbody>
+</table>

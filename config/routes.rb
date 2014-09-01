@@ -14,6 +14,8 @@ authenticated :user do
    resources :albums
   resources :stamps 
   resources :shares
+  resources :countries
+  resources :categories
 
   root :to => 'albums#index', :as => :user_root
 end
