@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new(category_params)
 		
 		if @category.save
-			 flash[:notice] = "Category created"
+			 flash[:success] = "Category created"
 			
 			 redirect_to :controller=>'categories',:action=>'index'
 			

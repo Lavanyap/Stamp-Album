@@ -18,7 +18,7 @@ class CountriesController < ApplicationController
 		@stamp = Country.new(country_params)
 		
 		if @stamp.save
-			 flash[:notice] = "Country created"
+			 flash[:success] = "Country created"
 			
 			 redirect_to :controller=>'countries',:action=>'index'
 			
