@@ -44,7 +44,7 @@ group :development do
 gem 'rails_layout'
 end
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-group :production do
+group :production, :staging do
 	gem 'rails_12factor'	
 end
 # Use ActiveModel has_secure_password
