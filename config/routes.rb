@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 authenticated :user do
-
+  get "/users/update_admin" => "users#update_admin"
     get "/stamps/update_stamp_form" => "stamps#update_stamp_form"
    
   get "/stamps/index_by_country" => "stamps#index_by_country"
@@ -16,7 +16,7 @@ authenticated :user do
   resources :shares
   resources :countries
   resources :categories
-
+  resources :users
   root :to => 'albums#index', :as => :user_root
 end
   # You can have the root of your site routed with "root"

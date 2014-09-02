@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Users</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<div class="new">
+	<%= link_to "Assign admin role to user", :controller => 'users', :action => "new" %>
+</div>
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>User Name</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+	
+	<% @user.each do |u| -%>	
+	 	<tr>
+	 		<% if (u.admin.to_s == "true") %>
+	 		<td><%= u.username %></td>
+	 		
+
+	<% end %>
+	 			
+	 		<% end %>
+
+	 	</tr>
+
+</tbody>
+</table>
+
+</body>
+</html>

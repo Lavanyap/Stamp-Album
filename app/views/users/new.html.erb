@@ -1,0 +1,15 @@
+<div class="col-md-6">
+<div class="input-group input-group-lg">
+	<%= form_tag("/users/update_admin", method: "get") do %>
+
+  	<%= label_tag(:id, "User :") %>
+
+  	<%= select_tag(:id,options_from_collection_for_select(@user, "id", "name")) %>
+ 
+
+  	<%= submit_tag("admin") %>
+  	<% end %>
+
+
+</div>
+</div>
