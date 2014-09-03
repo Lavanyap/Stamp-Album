@@ -1,12 +1,14 @@
-
-<div class="col-md-6">
+<div class ="new_temp">
+<div class="col-md-4">
 <div class="input-group input-group-lg">
 <%= form_for :country, :url => countries_path,
                            :method => 'POST',
                            :html =>{:multipart => true},
                            :role => :form do |f| %>
 <div class="form-group">
-    <%= f.label :name, "Country name:" %>
+    <h4 id ="t1'"> Add a new country </h4>
+    <br>
+    <%= f.label :name, "Country :" %>
     <%= f.text_field :name, :style => "height:25px" %>
 </div>
 
@@ -16,7 +18,10 @@
   <%= f.submit "Add a Country", :class => "btn btn-primary pull-right" %>
 </div>
   <% end %>
-  </div>   
-  </div>   
+    
    </form>  
+   </div>   
+  </div> 
+</div>
+
 

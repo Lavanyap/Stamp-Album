@@ -8,11 +8,13 @@
 
 </head>
 <body>
-<div class="new">
-	<%= link_to "Add a country", :controller => 'countries', :action => "new" %>
+<div>
+	<%= render template: "countries/new" %>
 </div>
 
 
+
+<div class ="table1">
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -41,6 +43,7 @@
 <% end %>
 </tbody>
 </table>
+</div>
 
 </body>
 </html>

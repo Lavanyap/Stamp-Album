@@ -9,7 +9,7 @@
 
   	<%= select_tag(:country_id,options_from_collection_for_select(@country, "id", "name")) %>
 
-  	<%= submit_tag("Search") %>
+  	<%= submit_tag("Search",:class=>"sub1") %>
   	<% end %>
  <% else %>
   	<%= form_tag("/stamps/index_by_category", method: "get") do %>
@@ -18,7 +18,7 @@
 
   	<%= select_tag(:category_id,options_from_collection_for_select(@category, "id", "name")) %>
 
-  	<%= submit_tag("Search") %>
+  	<%= submit_tag("Search",:class=>"sub1") %>
 <% end %>
 <% end %>
 

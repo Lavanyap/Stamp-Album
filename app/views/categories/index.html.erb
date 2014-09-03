@@ -8,11 +8,12 @@
 
 </head>
 <body>
-<div class="new">
-	<%= link_to "Add a category", :controller => 'categories', :action => "new" %>
+<div>
+	<%= render template: "categories/new" %>
 </div>
 
 
+<div class ="table1">
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -41,3 +42,6 @@
 <% end %>
 </tbody>
 </table>
+</div>
+</body>
+</html>

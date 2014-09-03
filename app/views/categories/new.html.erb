@@ -1,11 +1,14 @@
-<div class="col-md-6">
+<div class ="new_temp">
+<div class="col-md-4">
 <div class="input-group input-group-lg">
 <%= form_for :category, :url => categories_path,
                            :method => 'POST',
                            :html =>{:multipart => true},
                            :role => :form do |f| %>
 <div class="form-group">
-    <%= f.label :name, "Category name:" %>
+  <h4 id ="t1'"> Add a new Category </h4>
+  <br>
+    <%= f.label :name, "Category :" %>
     <%= f.text_field :name, :style => "height:25px" %>
 </div>
 
@@ -15,7 +18,8 @@
   <%= f.submit "Add a Category", :class => "btn btn-primary pull-right" %>
 </div>
   <% end %>
+    </form>  
   </div>   
   </div>   
-   </form>  
+ </div>
 

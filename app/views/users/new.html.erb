@@ -1,15 +1,18 @@
-<div class="col-md-6">
+<div class ="new_temp">
+<div class="col-md-4">
 <div class="input-group input-group-lg">
 	<%= form_tag("/users/update_admin", method: "get") do %>
-
+	<h4 id ="t1'"> Add new Admin</h4>
+	<br>
   	<%= label_tag(:id, "User :") %>
 
   	<%= select_tag(:id,options_from_collection_for_select(@user, "id", "name")) %>
  
-
-  	<%= submit_tag("admin") %>
+  	<br><br>
+  	<div style ="float:right;"><%= submit_tag("Add Admin",:class=>"sub") %></div>
   	<% end %>
 
 
+</div>
 </div>
 </div>
