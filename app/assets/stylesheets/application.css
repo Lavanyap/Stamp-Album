@@ -35,7 +35,9 @@ p{
     
 }
 .style_image{
-	margin-left: 40px;
+	margin-left: 45px;
+	border:10px solid;
+	 border-color: #A0A0A0 ;
 
 }
 

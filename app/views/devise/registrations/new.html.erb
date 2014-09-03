@@ -1,3 +1,14 @@
+<body  style ="background-color:#D8D8D8;">
+<div class= "wrapper">
+  <div id="first">
+
+<%= image_tag("stamp.jpg", :alt => "rss feed", :size => "600x600",:class => "style_image") %>
+
+
+  </div>
+
+
+<div class="col-md-4">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -20,3 +31,7 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+
+</div>
+</body>
