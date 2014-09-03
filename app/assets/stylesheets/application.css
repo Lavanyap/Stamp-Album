@@ -28,4 +28,10 @@ p{
 	text-align: right;
     
 }
+#first{
+    width: 760px;
+   
+    float:left;
+    border: 2px solid;
+}
 
