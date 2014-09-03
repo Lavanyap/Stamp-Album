@@ -34,7 +34,12 @@
 	 	<tr>
 	 		<% country = Country.find(stamp.country_id) %>
 	 		<% category= Category.find(stamp.category_id ) %>
-	 		<td><%= image_tag stamp.image.url, :size => "50x50" %></td>
+	 		<% if(stamp.image.present?) %>
+	 			<td><%= image_tag stamp.image.url, :size => "50x50" %></td>
+	 		<% else %>
+	 			<td><%= image_tag("default.jpg", :alt => "rss feed", :size => "50x50") %></td>
+      		<% end %>
+
 	 		<td><%= stamp.year_of_issue %></td>
 	 		<td><%= country.name %></td>
 	 		<td><%= category.name%></td>

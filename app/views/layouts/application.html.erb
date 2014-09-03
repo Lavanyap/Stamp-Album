@@ -51,8 +51,9 @@
 
            <li><%= link_to "Stamps by Country", :controller => "stamps" ,:action => "index",:id =>(1) %></li>
             <li><%= link_to "Stamps by Category", :controller => "stamps" ,:action => "index",:id =>(2) %></li>
-            <% if (current_user.admin == true) %> 
+            
              <li><%= link_to "Countries", :controller => "countries" ,:action => "index" %></li>
+             <% if (current_user.admin == true) %> 
              <li><%= link_to "Categories", :controller => "categories" ,:action => "index" %></li>
              <li><%= link_to "Admin Users", :controller => "users" ,:action => "index" %></li>
              <% end %>

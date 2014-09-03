@@ -10,7 +10,11 @@
 <% @album.each do |a| -%>
 <div class="album_box">
 	<div class="imgs">
-<%= image_tag a.image.url, :size => "50x50" %>
+    <% if(a.image.present?) %>
+      <%= image_tag a.image.url, :size => "50x50" %>
+      <% else %>
+      <%= image_tag("default.jpg", :alt => "rss feed", :size => "50x50") %>
+      <% end %>
 </div>
 <%= link_to a.album_name, :controller => 'albums', :action => "show", :id =>(a.id) %> 
 <br>
